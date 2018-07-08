@@ -122,10 +122,7 @@ $(function() {
 
         });
         it('carrega um novo conteudo quando um novo feed for carregado, o conteudo deve mudar.', function() {
-            //test if after is not equal to intial and if thats true the test passes
-            // FIX: changed dto a notEqual function 
             expect(after).not.toEqual(initial);
-            // FIX: removed the done due to it being redundanct- also removed from inside the function above
         });
     });    
 }());
