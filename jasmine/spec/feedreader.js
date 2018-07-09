@@ -32,6 +32,8 @@ $(function() {
          * and that the URL is not empty.
          */
 
+        // testa se todos os feeds tem uma URL;
+        
         it('tem alguma URL', function() {
         allFeeds.forEach(function (feed) {
                 expect(feed.url).toBeDefined;
@@ -46,7 +48,7 @@ $(function() {
          * and that the name is not empty.
          */
         
-        
+        // testa se todos os feeds tem um Nome; 
         it('tem nome', function() {
         allFeeds.forEach(function (feed) {
                 expect(feed.name).toBeDefined();
@@ -68,6 +70,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
         
+        // testa se a classe .menu-hidden já está em funcionamento
         it('o menu esta escondido', function() {
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
@@ -78,6 +81,7 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         
+         // testa se ao clicar no botão do menu ele aparece e desaparece 
         it('alterar quando for clicado', function() { 
             $('.menu-icon-link').click();
             expect($('body').hasClass('menu-hidden')).toBe(false);
@@ -93,6 +97,10 @@ $(function() {
          * Remember, loadFeed() is asynchronous so this test will require
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
+            
+            
+            // testa se terá pelo menos um elemento .entry no .feed quando terminar o loadFeed
+            
             beforeEach(function(done) {
                 loadFeed(0, done);
         }); 
@@ -103,6 +111,8 @@ $(function() {
 
     });
     /* TODO: Write a new test suite named "New Feed Selection" */
+    
+    // testa se o conteúdo muda quando terminar o loadFeed
         describe('Nova seleção de feed', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
