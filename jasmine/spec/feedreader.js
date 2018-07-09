@@ -32,7 +32,7 @@ $(function() {
          * and that the URL is not empty.
          */
 
-        // testa se todos os feeds tem uma URL;
+        // testa se todos os feeds tem uma URL através do loop, verificando se não é uma URL vazia
         
         it('tem alguma URL', function() {
         allFeeds.forEach(function (feed) {
@@ -48,7 +48,7 @@ $(function() {
          * and that the name is not empty.
          */
         
-        // testa se todos os feeds tem um Nome; 
+        // testa se todos os feeds tem um Nome através do loop, verifica se não é um nome com a string vazia
         it('tem nome', function() {
         allFeeds.forEach(function (feed) {
                 expect(feed.name).toBeDefined();
@@ -70,7 +70,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
         
-        // testa se a classe .menu-hidden já está em funcionamento
+        // testa se a classe .menu-hidden já está em funcionamento quando a pagina é carregada
         it('o menu esta escondido', function() {
             expect($('body').hasClass('menu-hidden')).toBe(true);
         });
@@ -99,7 +99,7 @@ $(function() {
          */
             
             
-            // testa se terá pelo menos um elemento .entry no .feed quando terminar o loadFeed
+            // testa se terá pelo menos um elemento .entry no .feed quando terminar o loadFeed, usamos o done para testar o async
             
             beforeEach(function(done) {
                 loadFeed(0, done);
@@ -112,7 +112,7 @@ $(function() {
     });
     /* TODO: Write a new test suite named "New Feed Selection" */
     
-    // testa se o conteúdo muda quando terminar o loadFeed
+    // testa se o conteúdo muda quando terminar o loadFeed usando as variaveis initial e after
         describe('Nova seleção de feed', function() {
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
@@ -124,13 +124,15 @@ $(function() {
             loadFeed(0, function() { 
                 initial = $('.feed').find('.entry:first').text();
                 loadFeed(1, function() {
-                    after = $('.feed').find('.entry:first').text();
+                    after = $('.feed').find('.entry:first').text();    
                     done();
                 });
             });
 
 
         });
+            
+        //testa se a variável after não é igual a variável initial, se não for, o teste está ok.    
         it('carrega um novo conteudo quando um novo feed for carregado, o conteudo deve mudar.', function() {
             expect(after).not.toEqual(initial);
         });
